@@ -1,0 +1,79 @@
+Lab-10
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using System.Windows;
+using System.Drawing.Text;
+
+namespace L10ControlTextBox
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+            using (InstalledFontCollection col = new InstalledFontCollection())
+            {
+                foreach (FontFamily fa in col.Families)
+                {
+                    listBox1.Items.Add(fa.Name);
+                }
+            }
+        }
+
+        private void splus_Click(object sender, EventArgs e)
+        {
+            Font font = this.box.Font;
+            this.box.Font = new Font("Broadway", font.Size + 1);
+        }
+
+        private void colorClicked(object sender, EventArgs e)
+        {
+            ColorDialog colorDlg = new ColorDialog();
+            colorDlg.AllowFullOpen = false;
+            colorDlg.AnyColor = true;
+            colorDlg.SolidColorOnly = false;
+
+            if (colorDlg.ShowDialog() == DialogResult.OK)
+            {
+                this.box.ForeColor = colorDlg.Color;
+            }
+        }
+
+        private void fapply_clicked(object sender, EventArgs e)
+        {
+            string text = this.listBox1.Text;
+            this.box.Font = new Font(text, this.box.Font.Size);
+
+        }
+    }
+    
+}
+Form1.cs
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace L10ControlTextBox
+{
+    static class Program
+    {
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
+        }
+    }
+}

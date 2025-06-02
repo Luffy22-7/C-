@@ -1,0 +1,31 @@
+L7: Exception Handling
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Kkhan_Testing
+{
+    using System;
+    class MoreThan5Characters : Exception
+    {
+
+        // Constructor
+        public MoreThan5Characters()
+        {
+            Console.Write("More than 15 characters can't be given to a name");
+        }
+    }
+
+    class Program
+    {
+
+        public void check(string s)
+        {
+            if (s.Length > 5)
+                throw new MoreThan5Characters();
+            Console.WriteLine("Proper Input... We will process it and get back to you");
+        }
+    }
+}

@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Kkhan_Testing
+{
+
+    interface StudentReport
+    {
+        string DegreeName();
+    }
+
+    class BCAStudent : StudentReport
+    {
+        public string DegreeName()
+        {
+            return "BCA";
+        }
+        public string name;
+        public BCAStudent(string name)
+        {
+            this.name = name;
+        }
+    }
+
+    class MCAStudent : StudentReport
+    {
+        public string DegreeName()
+        {
+            return "MCA";
+        }
+        public string name;
+        public MCAStudent(string name)
+        {
+            this.name = name;
+        }
+    }
+    
+}

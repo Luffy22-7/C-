@@ -1,0 +1,70 @@
+Lab-9  Salary Form﻿
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace L9Pay
+{
+    public partial class SalaryForm : Form
+    {
+        public SalaryForm()
+        {
+            InitializeComponent();
+        }
+
+
+        private void calculate_clicked(object sender, EventArgs e)
+        {
+            int salary = int.Parse(this.basic.Text);
+            double hra_calculated = salary * 10 / 100;
+            double da_calculated = salary * 5 / 100;
+            double cca_calculated = salary * 7 / 100;
+            this.hra.Text = "" + hra_calculated;
+            this.da.Text = "" + da_calculated;
+            this.cca.Text = "" + cca_calculated;
+            double gross_calculated = salary + hra_calculated + da_calculated + cca_calculated;
+            double pf_calculated = gross_calculated * 2.2 / 100;
+            double tax_calculated = gross_calculated * .3;
+            this.pf.Text = "" + pf_calculated;
+            this.tax.Text = "" + tax_calculated;
+            double net_calculated = gross_calculated - pf_calculated - tax_calculated;
+            gpay.Text = "" + gross_calculated;
+            netpay.Text = "" + net_calculated;
+
+
+        }
+
+       
+
+        
+    }
+}
+
+program cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace L9Pay
+{
+    static class Program
+    {
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new SalaryForm());
+        }
+    }
+}
