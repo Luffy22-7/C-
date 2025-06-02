@@ -1,0 +1,46 @@
+lab 1
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Bubble_sort
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] list;
+            Console.WriteLine("Enter the size:");
+            int n = int.Parse(Console.ReadLine());
+            list = new int[n];
+
+            Console.WriteLine("Enter {0} numbers: ", n);
+            for (short i = 0; i < n; i++)
+            {
+                list[i] = int.Parse(Console.ReadLine());
+            }
+
+            for (short i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (list[i] > list[j])
+                    {
+                        int t = list[i];
+                        list[i] = list[j];
+                        list[j] = t;
+                    }
+                }
+            }
+
+            Console.WriteLine("Sorted Output:");
+            for (short i = 0; i < n; i++)
+            {
+                Console.WriteLine(list[i]);
+            }
+            Console.ReadLine();
+        }
+    }
+}

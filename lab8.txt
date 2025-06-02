@@ -1,0 +1,43 @@
+lab8
+
+public partial class Form1 : Form
+{
+    public Form1()
+    {
+        InitializeComponent();
+    }
+
+    public void showadd(Object sender, EventArgs args)
+    {
+        int a = int.Parse(num1.Text);
+        int b = int.Parse(num2.Text);
+        int c = a + b;
+        result.Text = " " + c;
+    }
+
+    public void showsub(Object sender, EventArgs args)
+    {
+        int a = int.Parse(num1.Text);
+        int b = int.Parse(num2.Text);
+        int c = a - b;
+        result.Text = " " + c;
+    }
+}
+
+
+
+public void showMul(Object sender, EventArgs args)
+{
+    int a = int.Parse(num1.Text);
+    int b = int.Parse(num2.Text);
+    int c = a * b;
+    result.Text = " " + c;
+}
+
+public void showDiv(Object sender, EventArgs args)
+{
+    int a = int.Parse(num1.Text);
+    int b = int.Parse(num2.Text);
+    int c = a / b;
+    result.Text = " " + c;
+}

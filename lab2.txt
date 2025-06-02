@@ -1,0 +1,71 @@
+lab2
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace BHC
+{
+    class program2
+    {
+        String name, actype;
+        int accno;
+        long bal;
+
+        public void initial()
+        {
+            Console.WriteLine("Enter Account holder Name:");
+            name = Console.ReadLine();
+            Console.WriteLine("Enter Account Type:");
+            actype = Console.ReadLine();
+            Console.WriteLine("Enter Account no:");
+            accno = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter Initial Balance:");
+            bal = int.Parse(Console.ReadLine());
+        }
+
+        public void deposit()
+        {
+            int amt;
+            Console.WriteLine("Enter Deposit Amount:");
+            amt = int.Parse(Console.ReadLine());
+            bal = bal + amt;
+            Console.WriteLine("Amount {0} is Deposited", amt);
+        }
+
+        public void withdraw()
+        {
+            int amt;
+            Console.WriteLine("Enter the Amount:");
+            amt = int.Parse(Console.ReadLine());
+            if (amt > bal)
+            {
+                Console.WriteLine("Amount is exceeding the balance");
+            }
+            else
+            {
+                bal = bal - amt;
+                Console.WriteLine("Amount {0} is Debited", amt);
+            }
+        }
+
+        public void display()
+        {
+            Console.WriteLine("Name: " + name);
+            Console.WriteLine("Account Type: " + actype);
+            Console.WriteLine("Account Number: " + accno);
+            Console.WriteLine("Balance: " + bal);
+        }
+
+        public static void Main(String[] args)
+        {
+            program2 p = new program2();
+            p.initial();
+            p.deposit();
+            p.withdraw();
+            p.display();
+            Console.ReadLine();
+        }
+    }
+}
